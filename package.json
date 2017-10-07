@@ -1,0 +1,31 @@
+{
+  "name": "daniel.schleindlsperger.de",
+  "version": "1.0.0",
+  "description": "My personal website",
+  "scripts": {
+    "start": "gulp",
+    "build": "gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielschleindlsperger/daniel.schleindlsperger.de.git"
+  },
+  "author": "danielschleindlsperger",
+  "bugs": {
+    "url": "https://github.com/danielschleindlsperger/daniel.schleindlsperger.de.git/issues"
+  },
+  "homepage": "https://github.com/danielschleindlsperger/daniel.schleindlsperger.de.git#readme",
+  "devDependencies": {
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-image": "^2.7.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^2.2.0",
+    "gulp-uglify": "^2.0.0",
+    "gulp-util": "^3.0.7",
+    "normalize.css": "^7.0.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}

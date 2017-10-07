@@ -1,0 +1,39 @@
+// reset/normalize
+@import 'normalize.css/normalize';
+@import 'colors';
+@import 'typography';
+@import 'layout';
+body {
+    background-color: $black;
+}
+
+.bio {
+    margin-top: 2rem;
+}
+
+.projects {
+	margin-top: 4rem;
+	li {
+		a {
+			padding: .5rem;
+			display: inline-block;
+		}
+	}
+}
+
+.social {
+	.social-link {
+		display: inline-flex;
+		flex-flow: row nowrap;
+		align-items: center;
+
+		&:visited {
+			.social-icon {
+				filter: brightness(0.7);
+			}
+		}
+		.social-icon {
+			margin-right: .5rem;
+		}
+	}
+}
