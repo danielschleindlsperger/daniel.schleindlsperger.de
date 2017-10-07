@@ -1,7 +1,7 @@
 ## Usage
 
 ```
-$ git clone https://github.com/danielschleindlsperger/personal-website.git
+$ git clone https://github.com/danielschleindlsperger/daniel.schleindlsperger.de.git
 ```
 
 ```
