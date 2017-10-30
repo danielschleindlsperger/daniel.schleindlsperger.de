@@ -5,7 +5,7 @@ $ git clone https://github.com/danielschleindlsperger/daniel.schleindlsperger.de
 ```
 
 ```
-$ cd personal-website
+$ cd daniel.schleindlsperger.de
 ```
 
 ```
