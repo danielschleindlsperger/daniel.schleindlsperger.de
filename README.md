@@ -17,3 +17,7 @@ $ npm start
 ```
 
 Check the browser `localhost:7777`
+
+## Deployment
+
+In order to deploy to netlify, push to production branch. Everything will be triggered automatically.
