@@ -46,7 +46,6 @@ a {
 }
 
 .text-gradient {
-  @include shadow();
   display: inline-block;
   color: $accent-green;
   @supports((background-clip: text) or (-webkit-background-clip: text)) {
