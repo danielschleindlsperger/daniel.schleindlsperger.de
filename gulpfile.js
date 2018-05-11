@@ -42,14 +42,18 @@ gulp.task('styles:production', () => {
     }))
     .pipe(autoprefixer())
     .pipe(cleanCss())
-    .pipe(gulp.dest(styles.dest))
-    .pipe(connect.reload());
+    .pipe(gulp.dest(styles.dest));
 });
 
 gulp.task('html', () => {
   gulp.src(html.entry)
     .pipe(gulp.dest(html.dest))
     .pipe(connect.reload());
+});
+
+gulp.task('html:production', () => {
+  gulp.src(html.entry)
+    .pipe(gulp.dest(html.dest));
 });
 
 gulp.task('server', () => {
@@ -76,5 +80,5 @@ gulp.task('default', ['clean'], () => {
 
 // Build
 gulp.task('build', ['clean'], () => {
-  gulp.start('html', 'styles:production');
+  gulp.start('html:production', 'styles:production');
 });
