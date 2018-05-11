@@ -1,12 +1,8 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
-const uglify = require('gulp-uglify');
+const autoprefixer = require('gulp-autoprefixer');
+const cleanCss = require('gulp-clean-css');
 const connect = require('gulp-connect');
-const source = require('vinyl-source-stream');
-const buffer = require('vinyl-buffer');
-const sourcemaps = require('gulp-sourcemaps');
-const gutil = require('gulp-util');
-const image = require('gulp-image');
 const del = require('del');
 
 const dirs = {
@@ -29,10 +25,23 @@ gulp.task('styles', () => {
   gulp.src(styles.entry)
     .pipe(sass({
       includePaths: [
-        styles.all,
         'node_modules',
       ]
     }))
+    .pipe(autoprefixer())
+    .pipe(gulp.dest(styles.dest))
+    .pipe(connect.reload());
+});
+
+gulp.task('styles:production', () => {
+  gulp.src(styles.entry)
+    .pipe(sass({
+      includePaths: [
+        'node_modules',
+      ]
+    }))
+    .pipe(autoprefixer())
+    .pipe(cleanCss())
     .pipe(gulp.dest(styles.dest))
     .pipe(connect.reload());
 });
@@ -67,5 +76,5 @@ gulp.task('default', ['clean'], () => {
 
 // Build
 gulp.task('build', ['clean'], () => {
-  gulp.start('html', 'styles');
+  gulp.start('html', 'styles:production');
 });
