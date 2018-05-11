@@ -1,0 +1,15 @@
+section.greetings {
+  margin-top: 2rem;
+}
+
+section.introduction {
+  margin-top: 2rem;
+  .headline {
+    font-size: $font-size-big;
+    font-family: $serif-stack;
+  }
+}
+
+section.projects {
+  margin-top: 2rem;
+}

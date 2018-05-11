@@ -1,29 +1,13 @@
-html {
-    height: 100%;
-}
-
 body {
-    box-sizing: border-box;
-    min-height: 100%;
-
-    * {
-        box-sizing: inherit;
-    }
+  box-sizing: border-box;
+  * {
+      box-sizing: inherit;
+  }
 }
 
 main {
-    width: 100%;
-    max-width: 800px;
-    min-height: 100vh;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 2rem;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-}
-
-.text-center {
-    text-align: center;
+  width: 100%;
+  max-width: calc(600px + 4rem);
+  margin: 0 auto;
+  padding: 0 2rem;
 }

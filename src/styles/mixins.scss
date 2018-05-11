@@ -1,0 +1,18 @@
+$shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+$shadow-offset: 4px 4px 4px rgba(0, 0, 0, 0.1);
+
+@mixin shadow($type: 'text') {
+  @if $type == 'box' {
+    box-shadow: $shadow;
+  } @else {
+    text-shadow: $shadow;
+  }
+}
+
+@mixin shadow-offset($type: 'text') {
+  @if $type == 'box' {
+    box-shadow: $shadow-offset;
+  } @else {
+    text-shadow: $shadow-offset;
+  }
+}

@@ -14,47 +14,36 @@ const dirs = {
   dest: 'dist'
 };
 
-const htmlPaths = {
-  src: `${dirs.src}/*.html`,
-  dest: `${dirs.dest}`
+const html = {
+  entry: `${dirs.src}/index.html`,
+  dest: dirs.dest
 };
 
-const stylesPaths = {
-  src: `${dirs.src}/styles/main.scss`,
+const styles = {
+  entry: `${dirs.src}/styles/main.scss`,
+  all: `${dirs.src}/styles/**/*.scss`,
   dest: `${dirs.dest}/css`
 };
 
-const imagesPaths = {
-  src: `${dirs.src}/images/*`,
-  dest: `${dirs.dest}/img`
-};
-
 gulp.task('styles', () => {
-  gulp.src(stylesPaths.src)
+  gulp.src(styles.entry)
     .pipe(sass({
       includePaths: [
-        stylesPaths.src,
+        styles.all,
         'node_modules',
       ]
     }))
-    .pipe(gulp.dest(stylesPaths.dest))
+    .pipe(gulp.dest(styles.dest))
     .pipe(connect.reload());
 });
 
-gulp.task('html', function () {
-  gulp.src(htmlPaths.src)
-    .pipe(gulp.dest(htmlPaths.dest))
+gulp.task('html', () => {
+  gulp.src(html.entry)
+    .pipe(gulp.dest(html.dest))
     .pipe(connect.reload());
 });
 
-gulp.task('images', function () {
-  gulp.src(imagesPaths.src)
-    .pipe(image())
-    .pipe(gulp.dest(imagesPaths.dest))
-    .pipe(connect.reload());
-});
-
-gulp.task('server', function () {
+gulp.task('server', () => {
   connect.server({
     root: ['./dist'],
     livereload: true,
@@ -62,22 +51,21 @@ gulp.task('server', function () {
   });
 });
 
-gulp.task('clean', function () {
+gulp.task('clean', () => {
   return del(dirs.dest);
 });
 
-gulp.task('watch', function () {
-  gulp.watch(htmlPaths.src, ['html']);
-  gulp.watch(stylesPaths.src, ['styles']);
-  gulp.watch(imagesPaths.src, ['images']);
+gulp.task('watch', () => {
+  gulp.watch(html.entry, ['html']);
+  gulp.watch(styles.all, ['styles']);
 });
 
 // Default task
-gulp.task('default', ['clean'], function () {
-  gulp.start('clean', 'html', 'styles', 'images', 'server', 'watch');
+gulp.task('default', ['clean'], () => {
+  gulp.start('html', 'styles', 'server', 'watch');
 });
 
 // Build
-gulp.task('build', ['clean'], function () {
-  gulp.start('clean', 'html', 'styles', 'images');
+gulp.task('build', ['clean'], () => {
+  gulp.start('html', 'styles');
 });
