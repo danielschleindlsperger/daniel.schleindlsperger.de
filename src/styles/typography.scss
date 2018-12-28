@@ -37,6 +37,7 @@ h3 {
 
 a {
   color: $black;
+
   &:visited {
     color: $black;
   }
@@ -49,7 +50,8 @@ a {
 .text-gradient {
   display: inline-block;
   color: $accent-green;
-  @supports ((background-clip: text) or (-webkit-background-clip: text)) {
+
+  @supports (background-clip: text) or (-webkit-background-clip: text) {
     background-image: linear-gradient(to right top, $accent-green, $accent-blue);
     background-clip: text;
     -webkit-background-clip: text;
