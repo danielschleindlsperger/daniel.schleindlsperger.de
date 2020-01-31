@@ -5,43 +5,64 @@
   list-style: none;
 
   li {
-    background: $white;
-    display: flex;
-    position: relative;
-    justify-content: center;
-    align-items: center;
-    background-image: linear-gradient(to right top, $accent-green, $accent-blue);
     margin-right: 1.5rem;
     margin-bottom: 1.5rem;
-    transition: all 0.1s ease-in-out;
     @include shadow('box');
-
-    &:hover {
-      @include shadow-offset('box');
-      transform: translateY(-2px);
-    }
 
     &:last-child {
       margin-right: 0;
     }
 
-    &:before {
-      content: '';
-      position: absolute;
-      background: $white;
-      width: calc(100% - 4px);
-      height: calc(100% - 4px);
-    }
-
     a {
       padding: 9px 21px;
-      display: inline-block;
+      display: block;
       position: relative;
       text-decoration: none;
       font-family: $sans-serif-stack;
       line-height: 150%;
-      display: flex;
       align-items: center;
+      background-color: $white;
+
+      &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: -2px;
+        background-image: linear-gradient(to right top, $accent-green, $accent-blue);
+        transition: all 0.1s ease-in-out;
+        z-index: -1;
+      }
+
+      &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: -2px;
+        background-image: linear-gradient(to right bottom, $accent-blue-dark, $accent-purple);
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+      }
+
+      &:hover {
+        &:after {
+          opacity: 1;
+        }
+      }
+
+      &:focus {
+        &:after {
+          // don't transition on focus as it's probably inaccessible
+          transition: none;
+          opacity: 1;
+        }
+      }
     }
   }
 }
