@@ -1,3 +1,7 @@
+# daniel.schleindlsperger.de
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d30ea818-d767-43e2-a998-24ffe33b7bdd/deploy-status)](https://app.netlify.com/sites/copy-writer-camel-63751/deploys)
+
 ## Usage
 
 ```sh
