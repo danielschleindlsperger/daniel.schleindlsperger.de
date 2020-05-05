@@ -12,8 +12,8 @@ $ npm install
 $ npm start
 ```
 
-Check the browser [http://localhost:7777](`localhost:7777`)
+Open the browser on [localhost:7777](http://localhost:7777)
 
 ## Deployment
 
-In order to deploy to netlify, push to `production` branch. Everything will be triggered automatically.
+The site is continuously deployed by pushing the `master` branch.
